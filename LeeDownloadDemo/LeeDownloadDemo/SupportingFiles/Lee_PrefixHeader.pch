@@ -1,0 +1,35 @@
+//
+//  Lee_PrefixHeader.pch
+//  LeeDownloadDemo
+//
+//  Created by 姜自立 on 2020/5/21.
+//  Copyright © 2020 姜自立. All rights reserved.
+//
+
+#ifndef Lee_PrefixHeader_pch
+#define Lee_PrefixHeader_pch
+
+
+
+#define LeeFilePathKey          @"LeeFilePath"
+#define LeeFileSizeKey          @"LeeFileSize"
+#define LeeFileNameKey          @"LeeFileName"
+#define LeeFileUrlKey           @"LeeFileUrl"
+#define LeeFinishKey            @"LeeFinish"
+#define LeeTotalSizeKey         @"LeeTotalSize"
+
+#define LeeDownloadCompletedNotification @"LeeDownloadCompletedNotification"
+#define LeeMaxDownloadCount     6
+
+#define LeeFilePath             [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
+#define LeeFileDirector         [NSString stringWithFormat:@"%@/leeFileDownLoad/",LeeFilePath]
+#define LeeFileInfoPath         [LeeFileDirector stringByAppendingString:@"downLoadFile.plist"]
+
+#define WeakSelf() __weak __typeof(self) weakSelf = self;
+#define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
+#define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
+#define DeviceIphoneX ((ScreenWidth == 375.f && ScreenHeight == 812.f ? YES : NO) || (ScreenWidth == 414.f && ScreenHeight == 896.f ? YES : NO))
+// 系统的导航栏高度
+#define DeviceNavHeight (DeviceIphoneX ? 88 : 64)
+
+#endif /* Lee_PrefixHeader_pch */

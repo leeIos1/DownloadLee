@@ -8,27 +8,53 @@
 
 /* Begin PBXBuildFile section */
 		8EF7EDFF2476830D0065C1F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EDFE2476830D0065C1F2 /* AppDelegate.m */; };
-		8EF7EE022476830D0065C1F2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE012476830D0065C1F2 /* SceneDelegate.m */; };
-		8EF7EE052476830D0065C1F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE042476830D0065C1F2 /* ViewController.m */; };
-		8EF7EE082476830D0065C1F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7EE062476830D0065C1F2 /* Main.storyboard */; };
 		8EF7EE0A247683120065C1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7EE09247683120065C1F2 /* Assets.xcassets */; };
 		8EF7EE0D247683120065C1F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7EE0B247683120065C1F2 /* LaunchScreen.storyboard */; };
 		8EF7EE10247683120065C1F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE0F247683120065C1F2 /* main.m */; };
+		8EF7EE35247684770065C1F2 /* LeeCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE18247684760065C1F2 /* LeeCacheManager.m */; };
+		8EF7EE36247684770065C1F2 /* UIViewController+LeeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE1C247684760065C1F2 /* UIViewController+LeeCategory.m */; };
+		8EF7EE37247684770065C1F2 /* NSURLSession+LeeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE1D247684760065C1F2 /* NSURLSession+LeeCategory.m */; };
+		8EF7EE38247684770065C1F2 /* LeeDownLoadQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE20247684760065C1F2 /* LeeDownLoadQueue.m */; };
+		8EF7EE39247684770065C1F2 /* LeeDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE23247684760065C1F2 /* LeeDownloadOperation.m */; };
+		8EF7EE3A247684770065C1F2 /* LeeDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE24247684760065C1F2 /* LeeDownloadManager.m */; };
+		8EF7EE3B247684770065C1F2 /* LeeDownloadSesstion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE26247684760065C1F2 /* LeeDownloadSesstion.m */; };
+		8EF7EE3C247684770065C1F2 /* LeeFile.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7EE2B247684770065C1F2 /* LeeFile.json */; };
+		8EF7EE3D247684770065C1F2 /* LeeFileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE2E247684770065C1F2 /* LeeFileVC.m */; };
+		8EF7EE3E247684770065C1F2 /* LeeFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE31247684770065C1F2 /* LeeFileModel.m */; };
+		8EF7EE3F247684770065C1F2 /* LeeFileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7EE33247684770065C1F2 /* LeeFileCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8EF7EDFA2476830D0065C1F2 /* LeeDownloadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeeDownloadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF7EDFD2476830D0065C1F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8EF7EDFE2476830D0065C1F2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8EF7EE002476830D0065C1F2 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		8EF7EE012476830D0065C1F2 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		8EF7EE032476830D0065C1F2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8EF7EE042476830D0065C1F2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		8EF7EE072476830D0065C1F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8EF7EE09247683120065C1F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EF7EE0C247683120065C1F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8EF7EE0E247683120065C1F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EF7EE0F247683120065C1F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8EF7EE18247684760065C1F2 /* LeeCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeCacheManager.m; sourceTree = "<group>"; };
+		8EF7EE19247684760065C1F2 /* LeeCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeCacheManager.h; sourceTree = "<group>"; };
+		8EF7EE1B247684760065C1F2 /* NSURLSession+LeeCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+LeeCategory.h"; sourceTree = "<group>"; };
+		8EF7EE1C247684760065C1F2 /* UIViewController+LeeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LeeCategory.m"; sourceTree = "<group>"; };
+		8EF7EE1D247684760065C1F2 /* NSURLSession+LeeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+LeeCategory.m"; sourceTree = "<group>"; };
+		8EF7EE1E247684760065C1F2 /* UIViewController+LeeCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LeeCategory.h"; sourceTree = "<group>"; };
+		8EF7EE20247684760065C1F2 /* LeeDownLoadQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeDownLoadQueue.m; sourceTree = "<group>"; };
+		8EF7EE21247684760065C1F2 /* LeeDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeDownloadManager.h; sourceTree = "<group>"; };
+		8EF7EE22247684760065C1F2 /* LeeDownloadSesstion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeDownloadSesstion.h; sourceTree = "<group>"; };
+		8EF7EE23247684760065C1F2 /* LeeDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeDownloadOperation.m; sourceTree = "<group>"; };
+		8EF7EE24247684760065C1F2 /* LeeDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeDownloadManager.m; sourceTree = "<group>"; };
+		8EF7EE25247684760065C1F2 /* LeeDownLoadQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeDownLoadQueue.h; sourceTree = "<group>"; };
+		8EF7EE26247684760065C1F2 /* LeeDownloadSesstion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeDownloadSesstion.m; sourceTree = "<group>"; };
+		8EF7EE27247684760065C1F2 /* LeeDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeDownloadOperation.h; sourceTree = "<group>"; };
+		8EF7EE28247684760065C1F2 /* LeeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeHeader.h; sourceTree = "<group>"; };
+		8EF7EE2B247684770065C1F2 /* LeeFile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LeeFile.json; sourceTree = "<group>"; };
+		8EF7EE2D247684770065C1F2 /* LeeFileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeFileVC.h; sourceTree = "<group>"; };
+		8EF7EE2E247684770065C1F2 /* LeeFileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeFileVC.m; sourceTree = "<group>"; };
+		8EF7EE30247684770065C1F2 /* LeeFileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeFileModel.h; sourceTree = "<group>"; };
+		8EF7EE31247684770065C1F2 /* LeeFileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeFileModel.m; sourceTree = "<group>"; };
+		8EF7EE33247684770065C1F2 /* LeeFileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeFileCell.m; sourceTree = "<group>"; };
+		8EF7EE34247684770065C1F2 /* LeeFileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeFileCell.h; sourceTree = "<group>"; };
+		8EF7EE41247687BE0065C1F2 /* Lee_PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lee_PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,19 +87,117 @@
 		8EF7EDFC2476830D0065C1F2 /* LeeDownloadDemo */ = {
 			isa = PBXGroup;
 			children = (
-				8EF7EDFD2476830D0065C1F2 /* AppDelegate.h */,
-				8EF7EDFE2476830D0065C1F2 /* AppDelegate.m */,
-				8EF7EE002476830D0065C1F2 /* SceneDelegate.h */,
-				8EF7EE012476830D0065C1F2 /* SceneDelegate.m */,
-				8EF7EE032476830D0065C1F2 /* ViewController.h */,
-				8EF7EE042476830D0065C1F2 /* ViewController.m */,
-				8EF7EE062476830D0065C1F2 /* Main.storyboard */,
+				8EF7EE16247684760065C1F2 /* Common */,
+				8EF7EE29247684770065C1F2 /* Class */,
+				8EF7EE402476847A0065C1F2 /* SupportingFiles */,
 				8EF7EE09247683120065C1F2 /* Assets.xcassets */,
 				8EF7EE0B247683120065C1F2 /* LaunchScreen.storyboard */,
 				8EF7EE0E247683120065C1F2 /* Info.plist */,
 				8EF7EE0F247683120065C1F2 /* main.m */,
 			);
 			path = LeeDownloadDemo;
+			sourceTree = "<group>";
+		};
+		8EF7EE16247684760065C1F2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7EE1A247684760065C1F2 /* Category */,
+				8EF7EE17247684760065C1F2 /* Cache */,
+				8EF7EE1F247684760065C1F2 /* Download */,
+				8EF7EE28247684760065C1F2 /* LeeHeader.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8EF7EE17247684760065C1F2 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7EE18247684760065C1F2 /* LeeCacheManager.m */,
+				8EF7EE19247684760065C1F2 /* LeeCacheManager.h */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		8EF7EE1A247684760065C1F2 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7EE1B247684760065C1F2 /* NSURLSession+LeeCategory.h */,
+				8EF7EE1C247684760065C1F2 /* UIViewController+LeeCategory.m */,
+				8EF7EE1D247684760065C1F2 /* NSURLSession+LeeCategory.m */,
+				8EF7EE1E247684760065C1F2 /* UIViewController+LeeCategory.h */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		8EF7EE1F247684760065C1F2 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7EE20247684760065C1F2 /* LeeDownLoadQueue.m */,
+				8EF7EE21247684760065C1F2 /* LeeDownloadManager.h */,
+				8EF7EE22247684760065C1F2 /* LeeDownloadSesstion.h */,
+				8EF7EE23247684760065C1F2 /* LeeDownloadOperation.m */,
+				8EF7EE24247684760065C1F2 /* LeeDownloadManager.m */,
+				8EF7EE25247684760065C1F2 /* LeeDownLoadQueue.h */,
+				8EF7EE26247684760065C1F2 /* LeeDownloadSesstion.m */,
+				8EF7EE27247684760065C1F2 /* LeeDownloadOperation.h */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		8EF7EE29247684770065C1F2 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7EE2A247684770065C1F2 /* DownloadModule */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		8EF7EE2A247684770065C1F2 /* DownloadModule */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7EE2B247684770065C1F2 /* LeeFile.json */,
+				8EF7EE2F247684770065C1F2 /* Model */,
+				8EF7EE32247684770065C1F2 /* View */,
+				8EF7EE2C247684770065C1F2 /* Controller */,
+			);
+			path = DownloadModule;
+			sourceTree = "<group>";
+		};
+		8EF7EE2C247684770065C1F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7EE2D247684770065C1F2 /* LeeFileVC.h */,
+				8EF7EE2E247684770065C1F2 /* LeeFileVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8EF7EE2F247684770065C1F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7EE30247684770065C1F2 /* LeeFileModel.h */,
+				8EF7EE31247684770065C1F2 /* LeeFileModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8EF7EE32247684770065C1F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7EE33247684770065C1F2 /* LeeFileCell.m */,
+				8EF7EE34247684770065C1F2 /* LeeFileCell.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8EF7EE402476847A0065C1F2 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8EF7EDFD2476830D0065C1F2 /* AppDelegate.h */,
+				8EF7EDFE2476830D0065C1F2 /* AppDelegate.m */,
+				8EF7EE41247687BE0065C1F2 /* Lee_PrefixHeader.pch */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,9 +257,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF7EE3C247684770065C1F2 /* LeeFile.json in Resources */,
 				8EF7EE0D247683120065C1F2 /* LaunchScreen.storyboard in Resources */,
 				8EF7EE0A247683120065C1F2 /* Assets.xcassets in Resources */,
-				8EF7EE082476830D0065C1F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,24 +270,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EF7EE052476830D0065C1F2 /* ViewController.m in Sources */,
+				8EF7EE3E247684770065C1F2 /* LeeFileModel.m in Sources */,
+				8EF7EE3B247684770065C1F2 /* LeeDownloadSesstion.m in Sources */,
+				8EF7EE39247684770065C1F2 /* LeeDownloadOperation.m in Sources */,
+				8EF7EE37247684770065C1F2 /* NSURLSession+LeeCategory.m in Sources */,
+				8EF7EE36247684770065C1F2 /* UIViewController+LeeCategory.m in Sources */,
+				8EF7EE38247684770065C1F2 /* LeeDownLoadQueue.m in Sources */,
+				8EF7EE3D247684770065C1F2 /* LeeFileVC.m in Sources */,
+				8EF7EE3F247684770065C1F2 /* LeeFileCell.m in Sources */,
+				8EF7EE3A247684770065C1F2 /* LeeDownloadManager.m in Sources */,
+				8EF7EE35247684770065C1F2 /* LeeCacheManager.m in Sources */,
 				8EF7EDFF2476830D0065C1F2 /* AppDelegate.m in Sources */,
 				8EF7EE10247683120065C1F2 /* main.m in Sources */,
-				8EF7EE022476830D0065C1F2 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8EF7EE062476830D0065C1F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8EF7EE072476830D0065C1F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8EF7EE0B247683120065C1F2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -290,15 +414,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F87JX5PZTN;
+				DEVELOPMENT_TEAM = MD94SDTTY8;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = LeeDownloadDemo/SupportingFiles/Lee_PrefixHeader.pch;
 				INFOPLIST_FILE = LeeDownloadDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lee.LeeDownloadDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,15 +435,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F87JX5PZTN;
+				DEVELOPMENT_TEAM = MD94SDTTY8;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = LeeDownloadDemo/SupportingFiles/Lee_PrefixHeader.pch;
 				INFOPLIST_FILE = LeeDownloadDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lee.LeeDownloadDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
