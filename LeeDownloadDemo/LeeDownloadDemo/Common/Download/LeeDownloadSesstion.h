@@ -7,17 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "LeeHeader.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LeeDownloadSesstion : NSObject
 
-// 接口回调
 - (void)downloadWithURL:(NSURL *)url
-                  begin:(void(^)(NSString *))begin
-               progress:(void(^)(NSInteger,NSInteger))progress
-               complete:(void(^)(NSDictionary *,NSError *))complet;
-
+                   type:(LeeDownloadTypeBlock)typeBlock
+               progress:(LeeDownloadProgressBlock)progressBlock
+               complete:(LeeDownloadCompleteBlock)completeBlock;
 
 - (void)startDownLoadWithUrl:(NSString *)url;
 - (void)supendDownloadWithUrl:(NSString *)url;

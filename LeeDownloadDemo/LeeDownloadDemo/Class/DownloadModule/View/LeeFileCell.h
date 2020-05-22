@@ -16,7 +16,7 @@ typedef void(^LeeDownloadBlock)(LeeFileModel * fileModel);
 
 @property (nonatomic ,strong)LeeFileModel *fileModel;
 @property (nonatomic ,copy)LeeDownloadBlock downloadBlock;
-@property (nonatomic ,copy)LeeDownloadBlock pauseBlock;
+@property (nonatomic ,copy)LeeDownloadBlock supendBlock;
 @property (nonatomic ,copy)LeeDownloadBlock resumeBlock;
 @property (nonatomic ,copy)LeeDownloadBlock cancleBlock;
 

@@ -10,6 +10,7 @@
 #define LeeHeader_h
 
 typedef void(^LeeDownloadProgressBlock)(NSInteger completeSize,NSInteger expectSize);
-typedef void(^LeeDownloadCompleteBlock)(NSDictionary *respose,NSError *error);
+typedef void(^LeeDownloadTypeBlock)(NSInteger loadType);
+typedef void(^LeeDownloadCompleteBlock)(NSDictionary *__nullable respose,NSError *__nullable error);
 
 #endif /* LeeHeader_h */

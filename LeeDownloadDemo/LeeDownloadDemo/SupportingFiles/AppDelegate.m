@@ -23,11 +23,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = navVC;
     [self.window makeKeyAndVisible];
-    
-    [[LeeDownloadManager shareManager] downloadWithURL:[NSURL URLWithString:@"http://vfx.mtime.cn/Video/2019/03/09/mp4/190309153658147087.mp4"] progress:^(NSInteger completeSize, NSInteger expectSize) { // 进度监听
-    }complete:^(NSDictionary *respose, NSError *error) {  // 下载完成
-    }];
-    
+
     return YES;
 }
 

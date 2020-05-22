@@ -33,6 +33,11 @@
     return self;
 }
 
+-(void)dealloc{
+    [self.fileModel removeObserver:self forKeyPath:@"progress"];
+    [self.fileModel removeObserver:self forKeyPath:@"downloadType"];
+}
+
 #pragma mark -Private Methods
 -(void)initUI{
     [self addSubview:self.fileNameLb];
@@ -66,22 +71,80 @@
         }
         self.progressLabel.text = [NSString stringWithFormat:@"%.2f%%",to];
     }
+    
+    if ([keyPath isEqualToString:@"downloadType"]) {
+        if([change[NSKeyValueChangeOldKey] integerValue]!=[change[NSKeyValueChangeNewKey] integerValue]){
+            [self updateUIWithDownloadType];
+        }
+    }
+}
+
+-(void)updateUIWithDownloadType{
+    WeakSelf()
+    dispatch_async(dispatch_get_main_queue(), ^{
+        switch (weakSelf.fileModel.downloadType) {
+            case LeeWaitDownloadType:
+                [weakSelf.statusBtn setImage:[UIImage imageNamed:@"LeeDownLoad"] forState:UIControlStateNormal];
+                weakSelf.progressLabel.hidden = YES;
+                weakSelf.cancleBtn.hidden = YES;
+                break;
+            case LeeDownloadingType:
+                 [weakSelf.statusBtn setImage:[UIImage imageNamed:@"LeePause"] forState:UIControlStateNormal];
+                 weakSelf.progressLabel.hidden = NO;
+                 weakSelf.cancleBtn.hidden = NO;
+                break;
+            case LeeDownloadSupendType:
+                 [weakSelf.statusBtn setImage:[UIImage imageNamed:@"LeeDownLoad"] forState:UIControlStateNormal];
+                 weakSelf.progressLabel.hidden = NO;
+                 weakSelf.cancleBtn.hidden = NO;
+                break;
+            case LeeDownloadCompletedType:
+                [weakSelf.statusBtn setImage:[UIImage imageNamed:@"LeeCompleted"] forState:UIControlStateNormal];
+                weakSelf.progressLabel.hidden = YES;
+                weakSelf.cancleBtn.hidden = YES;
+                break;
+            default:
+                break;
+        }
+    });
 }
 
 #pragma mark -Target Methods
 -(void)changeDownLoadStatusAction{
-    [_statusBtn setImage:[UIImage imageNamed:@"LeePause"] forState:UIControlStateNormal];
-    _progressLabel.hidden = NO;
-    _cancleBtn.hidden = NO;
-    if(self.downloadBlock){
-        self.downloadBlock(self.fileModel);
+    switch (self.fileModel.downloadType) {
+        case LeeWaitDownloadType:
+            self.fileModel.downloadType = LeeDownloadingType;
+            if(self.downloadBlock){
+                self.downloadBlock(self.fileModel);
+            }
+            break;
+        case LeeDownloadingType:
+             self.fileModel.downloadType = LeeDownloadSupendType;
+             if(self.supendBlock){
+                 self.supendBlock(self.fileModel);
+             }
+            break;
+        case LeeDownloadSupendType:
+             self.fileModel.downloadType = LeeDownloadingType;
+             if(self.resumeBlock){
+                 self.resumeBlock(self.fileModel);
+             }
+            break;
+        case LeeDownloadCompletedType:
+            return;
+        break;
+        default:
+            break;
     }
+    [self updateUIWithDownloadType];
 }
 
 -(void)cancleAction{
+    self.fileModel.downloadType = LeeWaitDownloadType;
     if(self.cancleBlock){
         self.cancleBlock(self.fileModel);
     }
+    [self updateUIWithDownloadType];
 }
 
 #pragma mark -Setters && Getters
@@ -89,6 +152,8 @@
     _fileModel = fileModel;
     _fileNameLb.text = fileModel.fileName;
     [_fileModel addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionOld context:nil];
+    [_fileModel addObserver:self forKeyPath:@"downloadType" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionOld context:nil];
+    [self updateUIWithDownloadType];
 }
 
 -(UILabel *)fileNameLb{
@@ -122,6 +187,7 @@
 -(UILabel *)progressLabel{
     if(!_progressLabel){
         _progressLabel = [[UILabel alloc] init];
+        _progressLabel.textAlignment = NSTextAlignmentCenter;
         _progressLabel.textColor = rgb_lee(150);
         _progressLabel.font = [UIFont systemFontOfSize:13];
         _progressLabel.layer.borderColor = rgb_lee(245).CGColor;

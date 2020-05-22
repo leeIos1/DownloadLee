@@ -9,17 +9,17 @@
 #ifndef Lee_PrefixHeader_pch
 #define Lee_PrefixHeader_pch
 
-
-
 #define LeeFilePathKey          @"LeeFilePath"
 #define LeeFileSizeKey          @"LeeFileSize"
 #define LeeFileNameKey          @"LeeFileName"
 #define LeeFileUrlKey           @"LeeFileUrl"
 #define LeeFinishKey            @"LeeFinish"
 #define LeeTotalSizeKey         @"LeeTotalSize"
+#define LeeErrorKey             @"LeeErrorKey"
 
+#define LeeDownloadErrorNotification     @"LeeDownloadErrorNotification"
 #define LeeDownloadCompletedNotification @"LeeDownloadCompletedNotification"
-#define LeeMaxDownloadCount     6
+#define LeeMaxDownloadCount     3
 
 #define LeeFilePath             [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
 #define LeeFileDirector         [NSString stringWithFormat:@"%@/leeFileDownLoad/",LeeFilePath]

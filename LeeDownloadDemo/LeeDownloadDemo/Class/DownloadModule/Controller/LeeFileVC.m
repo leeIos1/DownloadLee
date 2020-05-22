@@ -16,10 +16,6 @@
 static NSString *LeeFileIdentifier = @"LeeFileIdentifier";
 
 @interface LeeFileVC ()<UITableViewDelegate,UITableViewDataSource>
-{
-    NSInteger pageSize;
-    NSInteger pageNum;
-}
 
 @property (nonatomic ,strong)LeeDownloadManager *downloadManager;
 @property (nonatomic ,strong)UITableView *tableView;
@@ -36,7 +32,13 @@ static NSString *LeeFileIdentifier = @"LeeFileIdentifier";
     if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)){
         self.navigationController.navigationBar.translucent = NO;
     }
+    [self clearOriginFiles];
     [self initUI];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadError:) name:LeeDownloadErrorNotification object:nil];
+}
+ 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark -Private Methods
@@ -44,7 +46,7 @@ static NSString *LeeFileIdentifier = @"LeeFileIdentifier";
     UIButton *cancleButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [cancleButton setTitle:@"取消" forState:UIControlStateNormal];
     [cancleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [cancleButton addTarget:self action:@selector(cancleAction) forControlEvents:UIControlEventTouchUpInside];
+    [cancleButton addTarget:self action:@selector(cancleAllAction) forControlEvents:UIControlEventTouchUpInside];
         
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:cancleButton];
     rightItem.imageInsets = UIEdgeInsetsMake(0, -15,0, 0);
@@ -52,7 +54,7 @@ static NSString *LeeFileIdentifier = @"LeeFileIdentifier";
     UIButton *resumeButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [resumeButton setTitle:@"恢复" forState:UIControlStateNormal];
     [resumeButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [resumeButton addTarget:self action:@selector(resumeAction) forControlEvents:UIControlEventTouchUpInside];
+    [resumeButton addTarget:self action:@selector(resumeAllAction) forControlEvents:UIControlEventTouchUpInside];
         
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:resumeButton];
     leftItem.imageInsets = UIEdgeInsetsMake(0, 15,0, 0);
@@ -64,31 +66,70 @@ static NSString *LeeFileIdentifier = @"LeeFileIdentifier";
 }
 
 -(void)clearOriginFiles{
-    [[LeeCacheManager shareCacheManger] clearFileAndFileInfos];
+    [[LeeCacheManager shareCacheManger] clearFiles];
 }
  
 - (void)downlaodWithUrlString:(LeeFileModel *)fileModel{
-    
+    WeakSelf()
     NSURL *url = [NSURL URLWithString:fileModel.fileUrl];
-    
-    [self.downloadManager downloadWithURL:url progress:^(NSInteger completeSize, NSInteger expectSize) { // 进度监听
-        fileModel.progress = 100.0 * completeSize / expectSize;
-      }complete:^(NSDictionary *respose, NSError *error) {  // 下载完成
-          if(error) {
-              [self showAlertDialogWithTitle:@"提示" messgae:[NSString stringWithFormat:@"%@下载失败",fileModel.fileName]];
-          }else{
-              fileModel.isCompleted = YES;
-          }
-      }];
+    [self.downloadManager downloadWithURL:url type:^(NSInteger loadType) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(loadType == 0){
+                fileModel.downloadType = LeeDownloadSupendType;
+                [weakSelf showAlertDialogWithTitle:@"提示" messgae:[NSString stringWithFormat:@"当前最大下载任务量为%d",LeeMaxDownloadCount]];
+            }else{
+                fileModel.downloadType = LeeDownloadingType;
+            }
+        });
+        
+    } progress:^(NSInteger completeSize, NSInteger expectSize) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            fileModel.progress = 100.0 * completeSize / expectSize;
+        });
+        
+    } complete:^(NSDictionary * _Nullable respose, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(error) {
+                fileModel.downloadType = LeeWaitDownloadType;
+                [weakSelf showAlertDialogWithTitle:@"提示" messgae:[NSString stringWithFormat:@"%@下载失败",fileModel.fileName]];
+            }else{
+                fileModel.downloadType = LeeDownloadCompletedType;
+            }
+        });
+    }];
+  
+}
+
+- (void)downloadError:(NSNotification *)notification{
+    NSDictionary *dic = notification.object;
+    WeakSelf()
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf showAlertDialogWithTitle:@"提示" messgae:dic[LeeErrorKey]];
+    });
 }
 
 #pragma mark -Target Methods
--(void)cancleAction{
-    [self.downloadManager stopAllDownloads]; // 取消所有下载
+-(void)cancleAllAction{
+    for (LeeFileModel *fileModel in self.dataArr) {
+        if(fileModel.downloadType == LeeDownloadingType){
+            fileModel.downloadType = LeeDownloadSupendType;
+        }
+    }
+    [self.downloadManager suspendAllDownloadTask];
 }
 
--(void)resumeAction{
-    
+-(void)resumeAllAction{
+    NSInteger count = 0;
+    for (LeeFileModel *fileModel in self.dataArr) {
+        if(fileModel.downloadType == LeeDownloadSupendType){
+            count++;
+            if(count > LeeMaxDownloadCount){
+                return;
+            }
+            [self downlaodWithUrlString:fileModel];
+        }
+    }
+//    [self.downloadManager startAllDownloadTask];
 }
 
 #pragma mark -Tableview delegate && datasource Methods
@@ -110,15 +151,17 @@ static NSString *LeeFileIdentifier = @"LeeFileIdentifier";
     cell.downloadBlock = ^(LeeFileModel * _Nonnull fileModel) {
         [weakSelf downlaodWithUrlString:fileModel];
     };
-    cell.cancleBlock = ^(LeeFileModel * _Nonnull fileModel) {
+    cell.supendBlock = ^(LeeFileModel * _Nonnull fileModel) {
         [weakSelf.downloadManager supendDownloadWithUrl:fileModel.fileUrl];
+    };
+    cell.resumeBlock = ^(LeeFileModel * _Nonnull fileModel) {
+        [weakSelf downlaodWithUrlString:fileModel];
+    };
+    cell.cancleBlock = ^(LeeFileModel * _Nonnull fileModel) {
+        [weakSelf.downloadManager cancelDownloadWithUrl:fileModel.fileUrl];
     };
     cell.selectionStyle =UITableViewCellSelectionStyleNone;
     return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
 }
 
 #pragma mark -Setter && Getter Methods

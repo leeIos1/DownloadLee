@@ -112,8 +112,8 @@
 		8EF7EE17247684760065C1F2 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				8EF7EE18247684760065C1F2 /* LeeCacheManager.m */,
 				8EF7EE19247684760065C1F2 /* LeeCacheManager.h */,
+				8EF7EE18247684760065C1F2 /* LeeCacheManager.m */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -121,10 +121,10 @@
 		8EF7EE1A247684760065C1F2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				8EF7EE1B247684760065C1F2 /* NSURLSession+LeeCategory.h */,
-				8EF7EE1C247684760065C1F2 /* UIViewController+LeeCategory.m */,
-				8EF7EE1D247684760065C1F2 /* NSURLSession+LeeCategory.m */,
 				8EF7EE1E247684760065C1F2 /* UIViewController+LeeCategory.h */,
+				8EF7EE1C247684760065C1F2 /* UIViewController+LeeCategory.m */,
+				8EF7EE1B247684760065C1F2 /* NSURLSession+LeeCategory.h */,
+				8EF7EE1D247684760065C1F2 /* NSURLSession+LeeCategory.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -132,14 +132,14 @@
 		8EF7EE1F247684760065C1F2 /* Download */ = {
 			isa = PBXGroup;
 			children = (
-				8EF7EE20247684760065C1F2 /* LeeDownLoadQueue.m */,
 				8EF7EE21247684760065C1F2 /* LeeDownloadManager.h */,
-				8EF7EE22247684760065C1F2 /* LeeDownloadSesstion.h */,
-				8EF7EE23247684760065C1F2 /* LeeDownloadOperation.m */,
 				8EF7EE24247684760065C1F2 /* LeeDownloadManager.m */,
-				8EF7EE25247684760065C1F2 /* LeeDownLoadQueue.h */,
+				8EF7EE22247684760065C1F2 /* LeeDownloadSesstion.h */,
 				8EF7EE26247684760065C1F2 /* LeeDownloadSesstion.m */,
+				8EF7EE25247684760065C1F2 /* LeeDownLoadQueue.h */,
+				8EF7EE20247684760065C1F2 /* LeeDownLoadQueue.m */,
 				8EF7EE27247684760065C1F2 /* LeeDownloadOperation.h */,
+				8EF7EE23247684760065C1F2 /* LeeDownloadOperation.m */,
 			);
 			path = Download;
 			sourceTree = "<group>";
@@ -184,8 +184,8 @@
 		8EF7EE32247684770065C1F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8EF7EE33247684770065C1F2 /* LeeFileCell.m */,
 				8EF7EE34247684770065C1F2 /* LeeFileCell.h */,
+				8EF7EE33247684770065C1F2 /* LeeFileCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
