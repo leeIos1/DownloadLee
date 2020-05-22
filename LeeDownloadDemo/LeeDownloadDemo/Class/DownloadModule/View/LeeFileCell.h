@@ -11,8 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^LeeDownloadBlock)(LeeFileModel * fileModel);
-//typedef void(^LeePauseBlock)(LeeFileModel * fileModel);
-//typedef void(^LeeCancleBlock)(LeeFileModel * fileModel);
 
 @interface LeeFileCell : UITableViewCell
 
